@@ -1,86 +1,104 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>네비게이션1</title>
-    <style>
-      *{margin: 0; padding: 0; box-sizing: border-box;}
-      ul, ol, li {list-style: none;}
-      /* 공통 */
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>네비게이션2</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    ul,
+    ol,
+    li {
+      list-style: none;
+    }
+
+    /*공통*/
+    /* body{ */
       :root{
-        --header-height:120px;
-        --section-max-wdith:1200px;
-      }
-      /*  */
-      
-      header{
-        height:  var(--header-height);
-        position: relative;
-        background-color: #f8e;
-      }
-  header .header_wrap{
-    width: 90;
-    max-width: var(--section-max-wdith);
-    margin: 0 auto;
-    display: flex;
-    /* 양끝정렬 균등여백 */
-    justify-content: space-between;
-    /* 교차축 정렬 */
-    align-items: center;
-    background-color: #fe8;
-  }
-  header .header_wrap .logo{
-    width: 120px; height: 80px;
-    background-color: #000;
-  }
-  header .header_wrap .util{
-    /* margin-left:auto ; */
+      --header-height:150px;
+      --section-max-wdith:1200px;
+    }
 
-    width: 80px; height: 80px;
-    background-color: #000;
-  }
-  
-  /* .wrap{margin: 50px;} */
+    /*  */
+    .wrap{
+    }
+    
+    header{
+      height: var(--header-height);
+      position: relative;
+      background-color: #f8e;
+    }
+    header .header_wrap{
+      width: 90%;
+      max-width: var(--section-max-wdith);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;/* 양끝정렬 균등여백 */
+      align-items: center; /*교차축가운데*/
+      background-color: #fe8;
+    }
+    header .header_wrap .logo{
+      width:120px; height: 80px;
+      background-color: #000;
+    }
+    header .header_wrap .util{
+      /* margin-left:auto;  */
+      width:80px; height: 80px;
+      background-color: #000;
+    }
 
-  nav{
-   /* padding: 1rem;  */
-   background-color: #ccc; }
 
-  .nav-wrap{padding: 1rem; background-color: #999;}
+    /* .wrap{margin: 50px;} */
+    nav {
+      /* padding: 1rem; */
+      background-color: #ccc;
+    }
+    
+    .nav-wrap {
+      /* padding: 1rem; */
+      background-color: #999;
+    }
+    
+    .nav-wrap>ul {
+      /* 플렉스 컨테이너 */
+      display: flex;
+      justify-content: center;
+      /* padding: 1rem; */
+      background-color: #666;
+    }
+    
+    .nav-wrap li.d1 {
+      background-color: #333;
+      padding:0 1.5rem;
+      line-height:var(--header-height) ;
+      /* height:var(--header-height); */
+    }
 
-  .nav-wrap >ul{
-    display: flex; 
-    justify-content: center;
-    /* padding: 1rem;  */
-    background-color: #666; }
-
-  .nav-wrap li.d1{
-    /* 플렉스 컨테이너 */ 
-    /* padding: 1rem;  */
-    background-color: #333;
-    padding: 0 1.5rem;
-    line-height: var(--header-height);
-    /* height: var(--header-height); */
-  }
-
-    .nav-wrap li.d1 div.d2{
+    .nav-wrap li.d1 div.d2 {
       display: none;
-      /* 기준요소 ? */
       position: absolute;
+      /*기준요소?  가까운 조상중 absolute fixed relative*/
       left: 0px;
-       top: var(--header-height);
+      top: var(--header-height);
       border: 1px solid #f00;
       background-color: #ccc;
-      width: 100%; 
-      line-height: 1.5;   
+      width:100%;
+      line-height: 1.5;
     }
 
     .nav-wrap li.d1:hover div.d2{
       display: block;
     }
+
     .nav-wrap li.d1 div.d2 ul{
+      /* 플렉스컨테이너 */
       display: flex;
       justify-content: center;
       margin: 0 auto;
@@ -89,16 +107,24 @@
       background-color: #999;
     }
     .nav-wrap li.d1 div.d2 ul li{
-      padding: 1rem 1.5rem;
+      /* 플렉스 아이템 */
+      padding:1rem 1.5rem;
     }
 
-</style>
+  </style>
 </head>
+
 <body>
+  <!-- 
+    아키테이블  d2 스타일
+   -->
+  <!-- 
+    nav>.nav-wrap>ul>li.d1.menu$*4>{menu$}+.d2>ul>li.sub$*3>{sub$}
+  -->
   <div class="wrap">
     <header>
       <div class="header_wrap">
-       <div class="logo">로고</div>
+        <div class="logo">로고</div>
         <nav>
           <div class="nav-wrap">
             <ul>
@@ -144,11 +170,11 @@
               </li>
             </ul>
           </div>
-        </nav> 
+        </nav>
         <div class="util">유틸</div>
-      
-    </div>
-  </header>
+      </div>
+    </header>
   </div>
 </body>
+
 </html>
